@@ -1,0 +1,104 @@
+@charset "utf-8";
+
+/* header 반응형 */
+@media(max-width:1200px)
+{
+    header .wrap{width: 100%;}
+ 
+}
+
+@media(max-width:991px)
+{
+    header .wrap nav ul li{margin: 0 20px;}
+}
+
+@media(max-width:767px)
+{
+    header label[for="open_menu"], header label[for="close_menu"]
+    {
+        position: absolute;
+        top: 0;
+        right: 10px;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        cursor: pointer;
+        z-index: 5;
+    }
+    header label[for="open_menu"] img,
+    header label[for="close_menu"] img{display: block; height: 50px;}
+    header label[for="open_menu"]{display: flex;}
+    header label[for="close_menu"]{display: none;}
+
+    header .wrap .logo
+    {
+        position: absolute; /* 포지션은 포지션이 조상에 없으면 조상을 바라본다 */
+        width: 100%;
+        display: flex;
+        align-items: center;
+    }
+
+    header .wrap nav
+    {
+        position: absolute;
+        top: 80px;
+        width: 100%;
+        background-color: rgba(0, 0, 0, 0.25);
+        left: 0;
+        max-height: 0;
+        overflow: hidden;
+    }
+    header .wrap nav ul
+    {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    header .wrap nav ul li
+    {
+        display: block;
+        width: 100%;
+        text-align: center;
+    }
+
+    header .wrap nav ul li a{line-height: 40px;}
+
+    header .wrap nav ul li:hover a:before{transform: scaleX(0);}
+
+    header .wrap nav ul li:hover a{display: block; background-color: rgba(0, 0, 0, 0.35);}
+
+    header .wrap .sns{display: none;}
+
+    #open_menu:checked ~ header .wrap nav{max-height: 320px; transition: max-height 0.5s;}
+
+    header label[for="open_menu"]{display: flex;}
+    header label[for="close_menu"]{display: none;}
+
+    #open_menu:checked ~  header label[for="open_menu"]{display: none;}
+    #open_menu:checked ~  header label[for="close_menu"]{display: flex;}
+    #close_menu:checked ~  header label[for="open_menu"]{display: flex;}
+    #close_menu:checked ~  header label[for="close_menu"]{display: none;}
+
+}
+
+/*  footer (반응형) */
+@media (max-width:1200px){
+    footer .wrap{width: 100%;}
+}
+
+@media (max-width:991px){
+    footer .wrap{padding: 30px 0;}
+    footer .wrap .f_main{
+        flex-direction: column;
+    }
+    footer .wrap .f_logo{
+        padding-left: 0;
+    }
+    footer .wrap .f_main .f_info{
+        padding: 20px 0;
+    }
+
+    footer .wrap .f_main .f_info ul{display: flex; flex-wrap: wrap;}
+
+    footer .wrap .f_main .f_info ul li{width: 50%; margin: 0; text-align: center; padding-bottom: 20px;}
+}
